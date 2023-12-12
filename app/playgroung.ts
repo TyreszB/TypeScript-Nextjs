@@ -1,10 +1,12 @@
+type Noop = () => any;
+type Noop2 = () => void;
+
 export default function play() {
-  const name = "Tyresz";
-  const age = 28;
-
-  function logPersonInfo(name: string, age: number) {
-    const info = `Name: ${name}, age: ${age}`;
+  function fn1(x: Noop): void {
+    const result = x();
+    result();
   }
-
-  logPersonInfo(name, age);
+  function fn2(x: Noop2): void {
+    const result = x();
+  }
 }
