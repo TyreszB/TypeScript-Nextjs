@@ -1,12 +1,17 @@
-type Noop = () => any;
-type Noop2 = () => void;
+class Logger<T> {
+  log(items: Array<T>, callback: (i: T) => void) {
+    items.forEach((item) => {
+      callback(item);
+    });
+  }
+}
 
 export default function play() {
-  function fn1(x: Noop): void {
-    const result = x();
-    result();
-  }
-  function fn2(x: Noop2): void {
-    const result = x();
-  }
+  const logger = new Logger<string>();
+
+  const cars = ["audi", "toyoda", "subaru"];
+
+  logger.log(cars, (car) => {
+    console.log(car);
+  });
 }
