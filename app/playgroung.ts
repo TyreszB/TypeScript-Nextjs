@@ -4,7 +4,6 @@ export default function play() {
 
   function logPersonInfo(name: string, age: number) {
     const info = `Name: ${name}, age: ${age}`;
-    console.log(info);
   }
 
   logPersonInfo(name, age);
