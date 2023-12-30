@@ -1,11 +1,12 @@
-"use client";
-import { useEffect } from "react";
-import play from "./playgroung";
+import getAllProducts from "../framework/shopify/product/get-all-products";
 
-export default function Home() {
-  useEffect(() => {
-    play();
-  }, []);
+export default async function Page() {
+  const products = await getAllProducts();
 
-  return <div>Hello World</div>;
+  console.log(products);
+  return (
+    <div>
+      <pre>{JSON.stringify(products, null, 2)}</pre>
+    </div>
+  );
 }
