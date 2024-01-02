@@ -10,7 +10,7 @@ const normalizeProductImages = ({ edges }: { edges: Array<ImageEdge> }) => {
   });
 };
 
-const normalizeProduct = (productNode: ShopifyProduct): Product => {
+export const normalizeProduct = (productNode: ShopifyProduct): Product => {
   //  Creating function to normalize image Collection
 
   const {
@@ -36,5 +36,3 @@ const normalizeProduct = (productNode: ShopifyProduct): Product => {
 
   return product;
 };
-
-export default normalizeProduct;
