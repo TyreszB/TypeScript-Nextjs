@@ -17,7 +17,11 @@
 }
 
 body {
-  @apply h-full mx-auto;
+  @apply bg-primary h-full mx-auto;
 
   max-width: 2460;
+}
+
+.fit {
+  min-height: calc(100vh - 88px);
 }
