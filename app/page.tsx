@@ -3,7 +3,7 @@ import { getConfig } from "@/framework/shopify/api/config";
 
 export default async function Page() {
   const config = getConfig();
-  const products = await getAllProducts();
+  const products = await getAllProducts(config);
 
   return (
     <div>
