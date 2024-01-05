@@ -44,7 +44,5 @@ export const normalizeProduct = (productNode: ShopifyProduct): Product => {
     ...rest,
   };
 
-  console.log(productNode);
-
   return product;
 };
