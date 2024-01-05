@@ -1,9 +1,30 @@
 .root {
   @apply relative;
+
+  &:nth-child(6n + 1) .productBg {
+    @apply bg-yellow-600;
+  }
+  &:nth-child(6n + 3) .productBg {
+    @apply bg-rose-400;
+  }
+  &:nth-child(6n + 5) .productBg {
+    @apply bg-rose-400;
+  }
+  &:nth-child(6n + 6) .productBg {
+    @apply bg-rose-400;
+  }
 }
 
+.productBg {
+  @apply absolute inset-0 z-0;
+  background-color: #212529;
+
+  &::before {
+    content: "";
+  }
+}
 .productTag {
-  @apply absolute top-0 left-0;
+  @apply absolute top-0 left-0 z-20;
   & > * {
     font-size: 2rem;
     letter-spacing: 0.4px;
