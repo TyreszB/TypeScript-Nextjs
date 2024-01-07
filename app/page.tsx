@@ -17,7 +17,7 @@ export default async function Page() {
       <Hero headline="hi" description="hey" />
       <Marquee>
         {products.map((product) => (
-          <ProductCard product={product} key={product.id} />
+          <ProductCard variant="slim" product={product} key={product.id} />
         ))}
       </Marquee>
     </>
