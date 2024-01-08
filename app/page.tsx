@@ -9,13 +9,23 @@ export default async function Page() {
 
   return (
     <>
-      <Grid>
+      <Grid layout="A">
         {products.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
       </Grid>
       <Hero headline="hi" description="hey" />
       <Marquee>
+        {products.map((product) => (
+          <ProductCard variant="slim" product={product} key={product.id} />
+        ))}
+      </Marquee>
+      <Grid layout="B">
+        {products.map((product) => (
+          <ProductCard product={product} key={product.id} />
+        ))}
+      </Grid>
+      <Marquee variant="secondary">
         {products.map((product) => (
           <ProductCard variant="slim" product={product} key={product.id} />
         ))}
