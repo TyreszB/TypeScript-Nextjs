@@ -1,16 +1,19 @@
 import React, { FC, ReactNode } from "react";
 import s from "./Marquee.module.css";
+import Marquee from "react-fast-marquee";
 
 interface Props {
   children: ReactNode[];
 }
 
-const Marquee: FC<Props> = ({ children }) => {
+const MarqueeFn: FC<Props> = ({ children }) => {
   return (
     <div className={s.root}>
-      <div className={s.container}>{children}</div>
+      <Marquee autoFill>
+        <div className={s.container}>{children}</div>
+      </Marquee>
     </div>
   );
 };
 
-export default Marquee;
+export default MarqueeFn;
