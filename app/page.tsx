@@ -1,7 +1,9 @@
-import { ProductCard } from "@/components/common/product";
 import getAllProducts from "../framework/shopify/product/get-all-products";
 import { getConfig } from "@/framework/shopify/api/config";
-import { Grid, Hero, Marquee } from "@/components/common/ui";
+
+import { Footer, NavBar } from "@/components/common";
+import { Grid, Hero, Marquee } from "@/components/ui";
+import { ProductCard } from "@/components/product";
 
 export default async function Page() {
   const config = getConfig();
@@ -9,6 +11,7 @@ export default async function Page() {
 
   return (
     <>
+      <NavBar />
       <Grid layout="A">
         {products.map((product) => (
           <ProductCard product={product} key={product.id} />
@@ -30,6 +33,7 @@ export default async function Page() {
           <ProductCard variant="slim" product={product} key={product.id} />
         ))}
       </Marquee>
+      <Footer />
     </>
   );
 }
