@@ -11,7 +11,6 @@ export default async function Page() {
 
   return (
     <>
-      <NavBar />
       <Grid layout="A">
         {products.map((product) => (
           <ProductCard product={product} key={product.id} />

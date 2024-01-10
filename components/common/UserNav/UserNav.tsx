@@ -13,7 +13,7 @@ const UserNav: FC = (props: Props) => {
           <Bag />
         </li>
         <li className={s.item}>
-          <Link href="/" legacyBehavior>
+          <Link href="/wishlist" legacyBehavior>
             <a>
               <Heart />
             </a>
