@@ -1,3 +1,5 @@
+"use client";
+import { useUI } from "@/components/context";
 import { FC } from "react";
 
 interface Props {
@@ -5,7 +7,10 @@ interface Props {
 }
 
 const Sidebar: FC<Props> = ({ children }) => {
-  const isOpen = true;
+  const { isSidebarOpen } = useUI();
+
+  const isOpen = isSidebarOpen;
+
   return (
     <>
       {isOpen ? (

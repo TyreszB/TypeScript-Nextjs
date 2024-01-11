@@ -32,7 +32,6 @@ export default async function Page() {
           <ProductCard variant="slim" product={product} key={product.id} />
         ))}
       </Marquee>
-      <Footer />
     </>
   );
 }

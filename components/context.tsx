@@ -1,19 +1,18 @@
 "use client";
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-export const UIContext = createContext<{ [key: string]: string }>({
-  uiState: "default",
+export const UIContext = createContext<{ [key: string]: any }>({
+  uiState: {},
 });
 
 export const UIProvider = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <UIContext.Provider value={{ uiState: "something" }}>
-      {children}
-    </UIContext.Provider>
-  );
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const uiState = {
+    isSidebarOpen,
+    setSidebarOpen,
+  };
+
+  return <UIContext.Provider value={uiState}>{children}</UIContext.Provider>;
 };
 
-export const useUI = () => {
-  const context = useContext(UIContext);
-  return context;
-};
+export const useUI = () => useContext(UIContext);

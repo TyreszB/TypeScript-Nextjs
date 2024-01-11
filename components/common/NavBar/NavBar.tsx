@@ -3,10 +3,9 @@ import Link from "next/link";
 import s from "./NavBar.module.css";
 import { UserNav } from "..";
 import { Container } from "@/components/ui";
+import { useUI } from "@/components/context";
 
-type Props = {};
-
-const NavBar: FC = (props: Props) => {
+const NavBar: FC = () => {
   return (
     <Container>
       <div className="">
