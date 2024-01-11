@@ -21,7 +21,7 @@ const CartSidebar: FC = () => {
         <div className="flex items-start justify-between space-x-3">
           <div className="h-7 flex items-center">
             <button className="hover:text-gray-500 transition ease-in-out duration-150">
-              <Cross onClick={isSidebarOpen} className="h-6 w-6" />
+              <Cross onClick={() => isSidebarOpen} className="h-6 w-6" />
             </button>
           </div>
         </div>

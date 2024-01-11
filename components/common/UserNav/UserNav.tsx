@@ -9,12 +9,12 @@ import { useUI } from "@/components/context";
 type Props = {};
 
 const UserNav: FC = (props: Props) => {
-  const { setSidebarOpen } = useUI();
+  const { openSidebar } = useUI();
   return (
     <nav>
       <ul className={s.list}>
         <li className={s.item}>
-          <Bag onClick={setSidebarOpen} />
+          <Bag onClick={openSidebar} />
         </li>
         <li className={s.item}>
           <Link href="/wishlist" legacyBehavior>
