@@ -1,6 +1,11 @@
 "use client";
 import { useUI } from "@/components/context";
-import { FC } from "react";
+import {
+  clearAllBodyScrollLocks,
+  disableBodyScroll,
+  enableBodyScroll,
+} from "body-scroll-lock";
+import React, { FC, useEffect, useRef } from "react";
 
 interface Props {
   children: any;
@@ -11,10 +16,25 @@ const Sidebar: FC<Props> = ({ children }) => {
 
   const isOpen = isSidebarOpen;
 
+  const ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+  useEffect(() => {
+    if (ref.current) {
+      if (isOpen) {
+        disableBodyScroll(ref.current);
+      } else {
+        enableBodyScroll(ref.current);
+      }
+    }
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, [isOpen]);
+
   return (
     <>
       {isOpen ? (
-        <div className="fixed inset-0 overflow-hidden h-full z-50">
+        <div ref={ref} className="fixed inset-0 overflow-hidden h-full z-50">
           <div className="absolute inset-0 overflow-hidden">
             <div
               onClick={closeSidebar}
