@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useMemo, useReducer } from "react";
 
 export interface StateModifiers {
   openSidebar: () => void;
@@ -47,11 +47,9 @@ export const UIProvider = ({ children }: { children: React.ReactNode }) => {
   const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
   const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
 
-  const value = {
-    openSidebar,
-    closeSidebar,
-    isSidebarOpen: state.isSidebarOpen,
-  };
+  const value = useMemo(() => {
+    return { openSidebar, closeSidebar, isSidebarOpen: state.isSidebarOpen };
+  }, [state.isSidebarOpen]);
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };
