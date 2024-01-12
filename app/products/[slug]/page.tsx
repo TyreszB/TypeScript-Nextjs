@@ -1,20 +1,20 @@
+import { getConfig } from "@/framework/shopify/api/config";
+import getAllProductPaths from "@/framework/shopify/product/get-all-product-paths";
 import { notFound } from "next/navigation";
 import React from "react";
 
 type Props = {
   params: {
-    slug: "cool-hat" | "lightweight-jacket" | "t-shirt";
+    slug: string;
   };
 };
+const config = getConfig();
+const { products } = await getAllProductPaths(config);
 
 export default function poductSlug({ params }: Props) {
-  console.log(params.slug);
-
   return (
     <div>
-      {params.slug === "cool-hat" ||
-      params.slug === "lightweight-jacket" ||
-      params.slug === "t-shirt" ? (
+      {products.map((product) => product.slug).includes(params.slug) ? (
         <div>{params.slug}</div>
       ) : (
         notFound()
