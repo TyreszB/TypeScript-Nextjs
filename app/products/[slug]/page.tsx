@@ -23,8 +23,10 @@ export default async function poductSlug({ params }: Props) {
     <div>
       {products.map((product) => product.slug).includes(params.slug) ? (
         <div>
-          {product.name}
-          {product.slug}
+          {product?.name}
+          {product?.slug}
+          {product?.price.currencyCode}
+          {product?.price.value}
         </div>
       ) : (
         notFound()
