@@ -13,6 +13,7 @@ type FetcherResult<T> = { data: T };
 const fetchApi = async <T>({
   url,
   query,
+  variables,
 }: ApiFetcherOptions): Promise<ApiFetcherResults<T>> => {
   const res = await fetch(url, {
     method: "POST",
@@ -21,6 +22,7 @@ const fetchApi = async <T>({
     },
     body: JSON.stringify({
       query,
+      variables,
     }),
   });
 
